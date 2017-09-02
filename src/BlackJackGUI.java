@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.awt.Color;
 
 public class BlackJackGUI {
 
@@ -35,16 +36,19 @@ public class BlackJackGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setBackground(Color.GRAY);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(6, 6, 200, 266);
-		frame.getContentPane().add(panel);
+		JPanel gameArea = new JPanel();
+		//todo: add background and card placements
+		gameArea.setBounds(6, 6, 200, 266);
+		frame.getContentPane().add(gameArea);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(244, 6, 200, 266);
-		frame.getContentPane().add(panel_1);
+		JPanel buttonArea = new JPanel();
+		//todo: identify which buttons are going to be needed and add them
+		buttonArea.setBounds(244, 6, 200, 266);
+		frame.getContentPane().add(buttonArea);
 	}
 }
