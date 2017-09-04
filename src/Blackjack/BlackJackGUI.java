@@ -1,8 +1,11 @@
+package Blackjack;
 import java.awt.EventQueue;
+import java.awt.image.BufferedImage;
+import java.io.*;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.Color;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
 
 public class BlackJackGUI {
 
@@ -36,19 +39,27 @@ public class BlackJackGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBackground(Color.GRAY);
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 800, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel gameArea = new JPanel();
 		//todo: add background and card placements
-		gameArea.setBounds(6, 6, 200, 266);
+		gameArea.setBounds(6, 6, 400, 466);
+		try{
+			BufferedImage bg = ImageIO.read(new File("/Users/williamweir10/GitHub/Blackjack/src/Blackjack/blackjack-table.png"));
+			JLabel imgLabel = new JLabel(new ImageIcon(bg));
+			gameArea.add(imgLabel);
+		}
+		catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Error with background image");
+			System.exit(0);
+		}
 		frame.getContentPane().add(gameArea);
 		
 		JPanel buttonArea = new JPanel();
 		//todo: identify which buttons are going to be needed and add them
-		buttonArea.setBounds(244, 6, 200, 266);
+		buttonArea.setBounds(407, 6, 387, 466);
 		frame.getContentPane().add(buttonArea);
 	}
 }
